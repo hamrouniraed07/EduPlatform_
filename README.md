@@ -141,5 +141,13 @@ npm run preview   # prévisualiser le build
 
 ---
 
+## Captures d'écran
+
+![Capture 1: Test Without Token](./NoToken.png)
+
+![Capture 2: Test With Token](./WithToken.png)
+
+---
+
 Projet réalisé dans le cadre du module MERN S9. N’hésitez pas à enrichir ce README (tests, déploiement, captures) avant de pousser vos prochaines évolutions.
 
