@@ -26,6 +26,15 @@ Plateforme d'apprentissage en ligne construite avec la stack **MongoDB, Express,
   - Pages principales : Accueil, Liste des cours, Détails d'un cours, Profil, Login, Register.
   - Component `ProtectedRoute` pour verrouiller l'accès aux écrans privés.
 
+- **Intégration IA (Gemini)**
+  - Utilisation de l'API Google Gemini (modèle gemini-2.5-flash) pour des fonctionnalités avancées.
+  - Analyse automatique des reviews de cours avec génération de rapports structurés.
+  - Génération de descriptions attractives pour les cours.
+  - Suggestions de cours similaires basées sur le contenu.
+  - Génération de bios professionnelles pour les utilisateurs.
+  - Insights globaux sur la plateforme pour les administrateurs.
+  - Routes AI dans `aiRoutes.js` avec authentification requise pour la plupart des endpoints.
+
 ## Structure du dépôt
 
 ```
@@ -61,6 +70,7 @@ Créer un fichier `Back/.env` :
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/eduplatform
 JWT_SECRET=remplacez-moi-par-une-valeur-secrète
+GEMINI_API_KEY=votre-clé-api-gemini-ici
 ```
 
 > ⚠️ Ne pas committer `.env`. Ajoutez-le dans un `.gitignore` si nécessaire.
@@ -105,6 +115,11 @@ npm run preview   # prévisualiser le build
 | GET | `/api/users/:id` | Profil utilisateur | ✅ |
 | GET | `/api/users/:id/courses` | Cours suivis | ✅ |
 | PUT | `/api/users/:id` | Mise à jour du profil (bio, site) | ✅ (propriétaire) |
+| POST | `/api/ai/analyze-reviews/:courseId` | Analyse IA des reviews d'un cours | ✅ |
+| POST | `/api/ai/generate-description` | Génération de description de cours | ✅ |
+| POST | `/api/ai/similar-courses/:courseId` | Suggestions de cours similaires | ❌ |
+| POST | `/api/ai/generate-bio` | Génération de bio professionnelle | ✅ |
+| GET | `/api/ai/platform-insights` | Insights globaux de la plateforme | ✅ (admin) |
 
 ## Bonnes pratiques Git / Push
 
