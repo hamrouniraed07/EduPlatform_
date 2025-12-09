@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const aiRoutes = require('./routes/aiRoutes');
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/auth', authRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/ai', aiRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'EduPlatform API is running' });
